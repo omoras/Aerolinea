@@ -14,12 +14,14 @@ import java.util.ArrayList;
 public class Avion {
     private String destino;
     private String tipoAvion;
+    private final Boolean Estado;
     ArrayList<Silla> sillas; 
 
     public Avion(String destino, String tipoAvion) {
         this.destino = destino;
         this.tipoAvion = tipoAvion;
         sillas=new ArrayList<>();
+        this.Estado=true;
     }
 
     public String getDestino() {

@@ -23,11 +23,24 @@ public class Menu {
         SillasCM();
         SillasA();
         SillasCG();
-        
+        Menu();
+
     }
 
     public void Menu() {
-
+        CompraTiquete compra = new CompraTiquete();
+        int opcion;
+        do {
+            System.out.println("Aerolinea UDEC");
+            System.out.println("1.Comprar Tiquete");
+            System.out.println("2.Finalizar Compras");
+            System.out.println("3.Ver Reporte de Ventas");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1:
+                    aviones = compra.CompraTiquete(aviones);
+            }
+        } while (opcion != 0);
     }
 
     public void CrearAviones() {

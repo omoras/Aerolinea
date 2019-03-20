@@ -5,6 +5,8 @@
  */
 package com.mycompany.aeronilena;
 
+import java.util.Date;
+
 /**
  *
  * @author orlan
@@ -12,11 +14,13 @@ package com.mycompany.aeronilena;
 public class Persona {
     private String nombre, apellido;
     private int documento;
-
-    public Persona(String nombre, String apellido, int documento) {
+    private final Date fechaNacimiento;
+    
+    public Persona(String nombre, String apellido, int documento, Date fechaNacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.documento = documento;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getNombre() {
