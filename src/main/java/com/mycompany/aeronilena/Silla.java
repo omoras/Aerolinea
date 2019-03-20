@@ -9,13 +9,40 @@ package com.mycompany.aeronilena;
  *
  * @author orlan
  */
-public class Sillas {
+public class Silla {
 
     private char posicionX;
     private int posicionY;
     private String tipoSilla;
     private int precio;
+    private boolean estado;
+    private Persona persona;
 
+    public Silla(char posicionX, int posicionY, String tipoSilla, int precio, boolean estado) {
+        this.posicionX = posicionX;
+        this.posicionY = posicionY;
+        this.tipoSilla = tipoSilla;
+        this.precio = precio;
+        this.estado = estado;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+    
+    
     public int getPrecio() {
         return precio;
     }

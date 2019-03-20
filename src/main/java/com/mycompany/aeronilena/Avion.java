@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Avion {
     private String destino;
     private String tipoAvion;
-    ArrayList<Sillas> sillas; 
+    ArrayList<Silla> sillas; 
 
     public Avion(String destino, String tipoAvion) {
         this.destino = destino;
@@ -38,11 +38,11 @@ public class Avion {
         this.tipoAvion = tipoAvion;
     }
 
-    public ArrayList<Sillas> getSillas() {
+    public ArrayList<Silla> getSillas() {
         return sillas;
     }
 
-    public void setSillas(ArrayList<Sillas> sillas) {
+    public void setSillas(ArrayList<Silla> sillas) {
         this.sillas = sillas;
     }
     
