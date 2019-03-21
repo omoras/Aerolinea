@@ -164,22 +164,5 @@ public class Menu {
         aviones.get(2).getSillas().add(new Silla('D', 14, "Turismo", 3000000, false));
     }
 
-    public void pintar() {
-        System.out.println("           **          ");
-        System.out.println("         *    *         ");
-        System.out.println("        *      *        ");
-        System.out.println("       *[A1][B1]*       ");
-        System.out.println("       *[A2][B2]*       ");
-        System.out.println("       *[A3][B3]*       ");
-        System.out.println("  ******     ******  ");
-        System.out.println(" *                 * ");
-        System.out.println("  ******     ******  ");
-        System.out.println("       *     *       ");
-        System.out.println("       *     *       ");
-        System.out.println("       *     *       ");
-        System.out.println("       *     *       ");
-        System.out.println("        *   *        ");
-        System.out.println("         *_*         ");
-
-    }
+    
 }
