@@ -22,7 +22,7 @@ public class CompraTiquete {
     Scanner sc = new Scanner(System.in);
     ArrayList<Avion> avion;
     int i;
-    boolean valida;
+    int valida;
 
     public ArrayList<Avion> CompraTiquete(ArrayList<Avion> avion) {
         this.avion = avion;
@@ -48,9 +48,16 @@ public class CompraTiquete {
                             do {
                                 pintaSillas(opcion);
                                 valida = seleccionar(opcion);
-                            } while (!valida);
-                            opcion = -1;
-                        }else{
+                                if (valida == 1) {
+                                    opcion=-1;
+                                    break;
+                                } else {
+                                    if(valida==2);
+                                    opcion=0;
+                                }
+                            } while (valida != 2);
+
+                        } else {
                             System.out.println("El vuelo ya no se encuentra Disponible");
                         }
                         break;
@@ -59,9 +66,16 @@ public class CompraTiquete {
                             do {
                                 pintaSillas(opcion);
                                 valida = seleccionar(opcion);
-                            } while (!valida);
-                            opcion = -1;
-                        }else{
+                                if (valida == 1) {
+                                    opcion=-1;
+                                    break;
+                                } else {
+                                    if(valida==2);
+                                    opcion=1;
+                                }
+                            } while (valida != 2);
+
+                        } else {
                             System.out.println("El vuelo ya no se encuentra Disponible");
                         }
                         break;
@@ -70,9 +84,16 @@ public class CompraTiquete {
                             do {
                                 pintaSillas(opcion);
                                 valida = seleccionar(opcion);
-                            } while (!valida);
-                            opcion = -1;
-                        }else{
+                                if (valida == 1) {
+                                    opcion=-1;
+                                    break;
+                                } else {
+                                    if(valida==2);
+                                    opcion=2;
+                                }
+                            } while (valida != 2);
+
+                        } else {
                             System.out.println("El vuelo ya no se encuentra Disponible");
                         }
                         break;
@@ -88,14 +109,18 @@ public class CompraTiquete {
         return avion;
     }
 
-    public boolean seleccionar(int vuelo) {
+    public int seleccionar(int vuelo) {
         try {
             System.out.println("Seleccione una Silla: ");
             String silla = sc.next();
             int precio = validarSilla(silla, vuelo);
             if (precio > 0) {
                 valida = menuCompras(precio, silla, vuelo);
-                return valida;
+                if (valida == 2) {
+                    return 2;
+                } else {
+                    return valida;
+                }
             } else {
                 if (precio == -1) {
                     System.out.println("La silla no se encuentra disponible.");
@@ -109,10 +134,10 @@ public class CompraTiquete {
         } catch (Exception e) {
             System.out.println("\033[31mNo entido lo que digito\033[30m");
         }
-        return false;
+        return 0;
     }
 
-    public boolean menuCompras(int precio, String silla, int vuelo) {
+    public int menuCompras(int precio, String silla, int vuelo) {
         char opcion;
         try {
             String tipo = tipoSilla(silla, vuelo);
@@ -123,20 +148,20 @@ public class CompraTiquete {
                 Persona p = solicitaDatos();
                 if (p != null) {
                     cambiaEstado(p, silla, vuelo);
-                    return true;
+                    return 1;
                 } else {
                     System.out.println("Datos Erroneos");
-                    return false;
+                    return 0;
                 }
             } else {
-                return false;
+                return 2;
             }
         } catch (NullPointerException e) {
             System.err.println("Debe digitar Algo");
         } catch (Exception e) {
             System.out.println("\033[31mNo entido lo que digito\033[30m");
         }
-        return false;
+        return 0;
 
     }
 
