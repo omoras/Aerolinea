@@ -25,7 +25,7 @@ Scanner sc = new Scanner(System.in);
             for(int i=0;i<avion.size();i++){
                 System.out.println(i+". Destino: "+avion.get(i).getDestino()+", Tipo Avion: "+avion.get(i).getTipoAvion());            
             }
-            System.out.print("Seleccione un vuelo: ");
+            System.out.println("Seleccione un vuelo: ");
                 opcion=sc.nextInt();
                 switch (opcion){
                     case 0:
@@ -35,7 +35,7 @@ Scanner sc = new Scanner(System.in);
                     case 1:
                         pintaSillas(opcion);
                         comprar(opcion);
-                        break;
+                        break; 
                     case 2:
                         pintaSillas(opcion);
                         comprar(opcion);
@@ -108,12 +108,30 @@ Scanner sc = new Scanner(System.in);
         for( i=0;i<avion.get(vuelo).getSillas().size();i++){
             if(avion.get(vuelo).getSillas().get(i).getTipoSilla().equals("Primera Clase")){
                 if(avion.get(vuelo).getSillas().get(i).getPosicionY()>9){
-                    System.out.println("                 *   "+avion.get(vuelo).getSillas().get(i).getPosicionX()+avion.get(vuelo).getSillas().get(i).getPosicionY()+"   "
-                                       +avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+"   *        ");
+                    if(avion.get(vuelo).getSillas().get(i).isEstado()){
+                        System.out.print("                 *   \033[32m"+avion.get(vuelo).getSillas().get(i).getPosicionX()+""+avion.get(vuelo).getSillas().get(i).getPosicionY()+"\033[30m  ");
+                    }else{
+                        System.out.print("                 *   \033[31m"+avion.get(vuelo).getSillas().get(i).getPosicionX()+""+avion.get(vuelo).getSillas().get(i).getPosicionY()+"\033[30m  ");
+                    }
+                    if(avion.get(vuelo).getSillas().get(i+1).isEstado()){
+                        System.out.println("\033[32m"+avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+"\033[30m   *        ");
+                    }else{
+                        System.out.println("\033[31m"+avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+"\033[30m   *        ");
+                    }
+                    
                     i+=1;
                 }else{
-                    System.out.println("                 *   "+avion.get(vuelo).getSillas().get(i).getPosicionX()+""+avion.get(vuelo).getSillas().get(i).getPosicionY()+"   "
-                                       +avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+"   *        ");
+                    if(avion.get(vuelo).getSillas().get(i).isEstado()){
+                        System.out.print("                 *   \033[32m"+avion.get(vuelo).getSillas().get(i).getPosicionX()+""+avion.get(vuelo).getSillas().get(i).getPosicionY()+"\033[30m  ");
+                    }else{
+                        System.out.print("                 *   \033[31m"+avion.get(vuelo).getSillas().get(i).getPosicionX()+""+avion.get(vuelo).getSillas().get(i).getPosicionY()+"\033[30m  ");
+                    }
+                    if(avion.get(vuelo).getSillas().get(i+1).isEstado()){
+                        System.out.println("\033[32m"+avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+"\033[30m   *        ");
+                    }else{
+                        System.out.println("\033[31m"+avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+"\033[30m   *        ");
+                    }
+                    
                     i+=1;
                 }
             }
@@ -123,15 +141,40 @@ Scanner sc = new Scanner(System.in);
         for( i=0;i<avion.get(vuelo).getSillas().size();i++){
             if(avion.get(vuelo).getSillas().get(i).getTipoSilla().equals("Business")){
                 if(avion.get(vuelo).getSillas().get(i).getPosicionY()>9){
-                    System.out.println("                 *  "+avion.get(vuelo).getSillas().get(i).getPosicionX()+avion.get(vuelo).getSillas().get(i).getPosicionY()+" "
-                                       +avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+" "
-                                       +avion.get(vuelo).getSillas().get(i+2).getPosicionX()+avion.get(vuelo).getSillas().get(i+2).getPosicionY()+"   *        ");
+                    if(avion.get(vuelo).getSillas().get(i).isEstado()){
+                        System.out.print("                 *  \033[32m"+avion.get(vuelo).getSillas().get(i).getPosicionX()+avion.get(vuelo).getSillas().get(i).getPosicionY()+"\033[30m ");
+                    }else{
+                        System.out.print("                 *  \033[31m"+avion.get(vuelo).getSillas().get(i).getPosicionX()+avion.get(vuelo).getSillas().get(i).getPosicionY()+"\033[30m ");
+                    }
+                    if(avion.get(vuelo).getSillas().get(i+1).isEstado()){
+                        System.out.print("\033[32m"+avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+"\033[30m ");
+                    }else{
+                        System.out.print("\033[31m"+avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+"\033[30m ");
+                    }
+                    if(avion.get(vuelo).getSillas().get(i+2).isEstado()){
+                        System.out.println("\033[32m"+avion.get(vuelo).getSillas().get(i+2).getPosicionX()+avion.get(vuelo).getSillas().get(i+2).getPosicionY()+"\033[30m   *        ");
+                    }else{
+                        System.out.println("\033[31m"+avion.get(vuelo).getSillas().get(i+2).getPosicionX()+avion.get(vuelo).getSillas().get(i+2).getPosicionY()+"\033[30m   *        ");
+                    }
                     i+=2;
                 }else{
-                    System.out.println("                 *  "+avion.get(vuelo).getSillas().get(i).getPosicionX()+""+avion.get(vuelo).getSillas().get(i).getPosicionY()+" "
-                                       +avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+" "
-                                       +avion.get(vuelo).getSillas().get(i+2).getPosicionX()+avion.get(vuelo).getSillas().get(i+2).getPosicionY()+"   *        ");
+                    if(avion.get(vuelo).getSillas().get(i).isEstado()){
+                        System.out.print("                 *  \033[32m"+avion.get(vuelo).getSillas().get(i).getPosicionX()+avion.get(vuelo).getSillas().get(i).getPosicionY()+"\033[30m ");
+                    }else{
+                        System.out.print("                 *  \033[31m"+avion.get(vuelo).getSillas().get(i).getPosicionX()+avion.get(vuelo).getSillas().get(i).getPosicionY()+"\033[30m ");
+                    }
+                    if(avion.get(vuelo).getSillas().get(i+1).isEstado()){
+                        System.out.print("\033[32m"+avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+"\033[30m ");
+                    }else{
+                        System.out.print("\033[31m"+avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+"\033[30m ");
+                    }
+                    if(avion.get(vuelo).getSillas().get(i+2).isEstado()){
+                        System.out.println("\033[32m"+avion.get(vuelo).getSillas().get(i+2).getPosicionX()+avion.get(vuelo).getSillas().get(i+2).getPosicionY()+"\033[30m   *        ");
+                    }else{
+                        System.out.println("\033[31m"+avion.get(vuelo).getSillas().get(i+2).getPosicionX()+avion.get(vuelo).getSillas().get(i+2).getPosicionY()+"\033[30m   *        ");
+                    }
                     i+=2;
+                    
                 }
             }
         }
@@ -140,16 +183,48 @@ Scanner sc = new Scanner(System.in);
         for( i=0;i<avion.get(vuelo).getSillas().size();i++){
             if(avion.get(vuelo).getSillas().get(i).getTipoSilla().equals("Turismo")){
                 if(avion.get(vuelo).getSillas().get(i).getPosicionY()>9){
-                    System.out.println("                 *"+avion.get(vuelo).getSillas().get(i).getPosicionX()+avion.get(vuelo).getSillas().get(i).getPosicionY()+""
-                                       +avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+" "
-                                       +avion.get(vuelo).getSillas().get(i+2).getPosicionX()+avion.get(vuelo).getSillas().get(i+2).getPosicionY()+""
-                                       +avion.get(vuelo).getSillas().get(i+3).getPosicionX()+avion.get(vuelo).getSillas().get(i+3).getPosicionY()+"*        ");
+                    if(avion.get(vuelo).getSillas().get(i).isEstado()){
+                        System.out.print("                 *\033[32m"+avion.get(vuelo).getSillas().get(i).getPosicionX()+avion.get(vuelo).getSillas().get(i).getPosicionY()+"\033[30m");
+                    }else{
+                        System.out.print("                 *\033[31m"+avion.get(vuelo).getSillas().get(i).getPosicionX()+avion.get(vuelo).getSillas().get(i).getPosicionY()+"\033[30m");
+                    }
+                    if(avion.get(vuelo).getSillas().get(i+1).isEstado()){
+                        System.out.print("\033[32m"+avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+"\033[30m ");
+                    }else{
+                        System.out.print("\033[31m"+avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+"\033[30m ");
+                    }
+                    if(avion.get(vuelo).getSillas().get(i+2).isEstado()){
+                        System.out.print("\033[32m"+avion.get(vuelo).getSillas().get(i+2).getPosicionX()+avion.get(vuelo).getSillas().get(i+2).getPosicionY()+"\033[30m");
+                    }else{
+                        System.out.print("\033[31m"+avion.get(vuelo).getSillas().get(i+2).getPosicionX()+avion.get(vuelo).getSillas().get(i+2).getPosicionY()+"\033[30m");
+                    }
+                    if(avion.get(vuelo).getSillas().get(i+3).isEstado()){
+                        System.out.println("\033[32m"+avion.get(vuelo).getSillas().get(i+3).getPosicionX()+avion.get(vuelo).getSillas().get(i+3).getPosicionY()+"\033[30m*        ");
+                    }else{
+                        System.out.println("\033[31m"+avion.get(vuelo).getSillas().get(i+3).getPosicionX()+avion.get(vuelo).getSillas().get(i+3).getPosicionY()+"\033[30m*        ");
+                    }
                     i+=3;
                 }else{
-                    System.out.println("                 * "+avion.get(vuelo).getSillas().get(i).getPosicionX()+avion.get(vuelo).getSillas().get(i).getPosicionY()+""
-                                       +avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+"  "
-                                       +avion.get(vuelo).getSillas().get(i+2).getPosicionX()+avion.get(vuelo).getSillas().get(i+2).getPosicionY()+""
-                                       +avion.get(vuelo).getSillas().get(i+3).getPosicionX()+avion.get(vuelo).getSillas().get(i+3).getPosicionY()+"  *        ");
+                    if(avion.get(vuelo).getSillas().get(i).isEstado()){
+                        System.out.print("                 * \033[32m"+avion.get(vuelo).getSillas().get(i).getPosicionX()+avion.get(vuelo).getSillas().get(i).getPosicionY()+"\033[30m");
+                    }else{
+                        System.out.print("                 * \033[31m"+avion.get(vuelo).getSillas().get(i).getPosicionX()+avion.get(vuelo).getSillas().get(i).getPosicionY()+"\033[30m");
+                    }
+                    if(avion.get(vuelo).getSillas().get(i+1).isEstado()){
+                        System.out.print("\033[32m"+avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+"\033[30m  ");
+                    }else{
+                        System.out.print("\033[31m"+avion.get(vuelo).getSillas().get(i+1).getPosicionX()+avion.get(vuelo).getSillas().get(i+1).getPosicionY()+"\033[30m  ");
+                    }
+                    if(avion.get(vuelo).getSillas().get(i+2).isEstado()){
+                        System.out.print("\033[32m"+avion.get(vuelo).getSillas().get(i+2).getPosicionX()+avion.get(vuelo).getSillas().get(i+2).getPosicionY()+"\033[30m");
+                    }else{
+                        System.out.print("\033[31m"+avion.get(vuelo).getSillas().get(i+2).getPosicionX()+avion.get(vuelo).getSillas().get(i+2).getPosicionY()+"\033[30m");
+                    }
+                    if(avion.get(vuelo).getSillas().get(i+3).isEstado()){
+                        System.out.println("\033[32m"+avion.get(vuelo).getSillas().get(i+3).getPosicionX()+avion.get(vuelo).getSillas().get(i+3).getPosicionY()+"\033[30m  *        ");
+                    }else{
+                        System.out.println("\033[31m"+avion.get(vuelo).getSillas().get(i+3).getPosicionX()+avion.get(vuelo).getSillas().get(i+3).getPosicionY()+"\033[30m  *        ");
+                    }
                     i+=3;
                 }
             }
