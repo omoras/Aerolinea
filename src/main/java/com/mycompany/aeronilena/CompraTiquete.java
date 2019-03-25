@@ -72,20 +72,21 @@ Scanner sc = new Scanner(System.in);
 
             } while (opcion != 0);
     }
-    public void costoSillas(int vuelo, String clase){
-        String silla;
+    public void costoSillas(int vuelo, String clase)throws InputMismatchException{
+        int silla;
         for( i=0;i<avion.get(vuelo).getSillas().size();i++){
             if(avion.get(vuelo).getSillas().get(i).getTipoSilla().equals(clase) && avion.get(vuelo).getSillas().get(i).isEstado()==false){
-                System.out.println("El costo de la silla "+ clase +" es de: "+avion.get(vuelo).getSillas().get(i).getPrecio()+" "+avion.get(vuelo).getSillas().get(i).getPosicionX()+
+                System.out.println(i+" el costo de la silla "+ clase +" es de: "+avion.get(vuelo).getSillas().get(i).getPrecio()+" "+avion.get(vuelo).getSillas().get(i).getPosicionX()+
                                         avion.get(vuelo).getSillas().get(i).getPosicionY());
                 if(avion.get(vuelo).getSillas().get(i).getPosicionY()>9 && avion.get(vuelo).getSillas().get(i).isEstado()==false){
-                    System.out.println("El costo de la silla "+ clase +" es de: "+avion.get(vuelo).getSillas().get(i).getPrecio()+" "+avion.get(vuelo).getSillas().get(i).getPosicionX()+
+                    System.out.println(i+" el costo de la silla "+ clase +" es de: "+avion.get(vuelo).getSillas().get(i).getPrecio()+" "+avion.get(vuelo).getSillas().get(i).getPosicionX()+
                                         avion.get(vuelo).getSillas().get(i).getPosicionY());
                 }
             }
         }
-        System.out.println("Por favor digite la silla que desea comprar");
-        silla=sc.next();
+        System.out.println("Seleccione la clase de silla que desea comprar: ");
+        silla=sc.nextInt();
+        //System.out.println(avion.get(vuelo).getSillas().get(silla).setEstado(true));
     }
     public void pintaSillas(int vuelo){
         
