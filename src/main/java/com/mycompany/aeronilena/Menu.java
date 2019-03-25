@@ -17,7 +17,8 @@ public class Menu {
 
     ArrayList<Avion> aviones;
     Scanner sc = new Scanner(System.in);
-
+CompraTiquete compra = new CompraTiquete();
+FinCompra fin=new FinCompra();
     public void Iniciar() {
         aviones = new ArrayList<>();
         CrearAviones();
@@ -29,25 +30,33 @@ public class Menu {
     }
 
     public void Menu() {
-        try{
-        CompraTiquete compra = new CompraTiquete();
-            int opcion=0;
-            do {
+        
+        int opcion = 0;
+        do {
+            try {
+
                 System.out.println("Aerolinea UDEC");
                 System.out.println("1.Comprar Tiquete");
                 System.out.println("2.Finalizar Compras");
                 System.out.println("3.Ver Reporte de Ventas");
-                opcion = sc.nextInt();
+                opcion = Integer.parseInt(sc.next());
                 switch (opcion) {
                     case 1:
                         aviones = compra.CompraTiquete(aviones);
+                        break;
+                    case 2:
+                        aviones=fin.FinCompra(aviones);
+                        break;
                 }
-                
 
-            } while (opcion != 0);
-        }catch(InputMismatchException e){
-             System.err.println(" No ha digitado un numero por favor intente de nuevo"+"  "+e);
-        }
+            }catch(NumberFormatException e){
+                System.err.println("No digito un Numero");
+                opcion=-1;
+            } catch (NullPointerException e) {
+                System.err.println(" No ha digitado un numero por favor intente de nuevo");
+                opcion=-1;
+            }
+        } while (opcion != 0);
     }
 
     public void CrearAviones() {
@@ -171,5 +180,4 @@ public class Menu {
         aviones.get(2).getSillas().add(new Silla('D', 14, "Turismo", 3000000, true));
     }
 
-    
 }
