@@ -66,7 +66,7 @@ Scanner sc = new Scanner(System.in);
                         costoSillas(vuelo,"Turismo");
                         break;
                     case 3:
-                        costoSillas(vuelo,"Business");
+                        costoSillas(vuelo,"Businesss");
                         break;
                 }
 
