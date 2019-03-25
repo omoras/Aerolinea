@@ -44,25 +44,37 @@ public class CompraTiquete {
                     case -1:
                         break;
                     case 0:
-                        do {
-                            pintaSillas(opcion);
-                            valida = seleccionar(opcion);
-                        } while (!valida);
-                        opcion = -1;
+                        if (avion.get(opcion).getEstado()) {
+                            do {
+                                pintaSillas(opcion);
+                                valida = seleccionar(opcion);
+                            } while (!valida);
+                            opcion = -1;
+                        }else{
+                            System.out.println("El vuelo ya no se encuentra Disponible");
+                        }
                         break;
                     case 1:
-                        do {
-                            pintaSillas(opcion);
-                            valida = seleccionar(opcion);
-                        } while (!valida);
-                        opcion = -1;
+                        if (avion.get(opcion).getEstado()) {
+                            do {
+                                pintaSillas(opcion);
+                                valida = seleccionar(opcion);
+                            } while (!valida);
+                            opcion = -1;
+                        }else{
+                            System.out.println("El vuelo ya no se encuentra Disponible");
+                        }
                         break;
                     case 2:
-                        do {
-                            pintaSillas(opcion);
-                            valida = seleccionar(opcion);
-                        } while (!valida);
-                        opcion = -1;
+                        if (avion.get(opcion).getEstado()) {
+                            do {
+                                pintaSillas(opcion);
+                                valida = seleccionar(opcion);
+                            } while (!valida);
+                            opcion = -1;
+                        }else{
+                            System.out.println("El vuelo ya no se encuentra Disponible");
+                        }
                         break;
                     default:
                         System.out.println("El vuelo que digito no existe.");

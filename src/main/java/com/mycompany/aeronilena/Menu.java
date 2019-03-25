@@ -19,6 +19,7 @@ public class Menu {
     Scanner sc = new Scanner(System.in);
 CompraTiquete compra = new CompraTiquete();
 FinCompra fin=new FinCompra();
+Reportes report=new Reportes();
     public void Iniciar() {
         aviones = new ArrayList<>();
         CrearAviones();
@@ -47,6 +48,8 @@ FinCompra fin=new FinCompra();
                     case 2:
                         aviones=fin.FinCompra(aviones);
                         break;
+                    case 3:
+                        aviones=report.reportes(aviones);
                 }
 
             }catch(NumberFormatException e){
@@ -68,48 +71,48 @@ FinCompra fin=new FinCompra();
     public void SillasCM() {
         //creacion de 6 sillas en Primera clase 
         aviones.get(0).getSillas().add(new Silla('A', 1, "Primera Clase", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('B', 1, "Primera Clase", 400000, false));
+        aviones.get(0).getSillas().add(new Silla('B', 1, "Primera Clase", 400000, true));
         aviones.get(0).getSillas().add(new Silla('A', 2, "Primera Clase", 400000, true));
         aviones.get(0).getSillas().add(new Silla('B', 2, "Primera Clase", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('A', 3, "Primera Clase", 400000, false));
+        aviones.get(0).getSillas().add(new Silla('A', 3, "Primera Clase", 400000, true));
         aviones.get(0).getSillas().add(new Silla('B', 3, "Primera Clase", 400000, true));
         //Creacion de 36 sillas Turista
-        aviones.get(0).getSillas().add(new Silla('A', 4, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('B', 4, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('C', 4, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('D', 4, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('A', 5, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('B', 5, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('C', 5, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('D', 5, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('A', 6, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('B', 6, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('C', 6, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('D', 6, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('A', 7, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('B', 7, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('C', 7, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('D', 7, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('A', 8, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('B', 8, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('C', 8, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('D', 8, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('A', 9, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('B', 9, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('C', 9, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('D', 9, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('A', 10, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('B', 10, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('C', 10, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('D', 10, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('A', 11, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('B', 11, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('C', 11, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('D', 11, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('A', 12, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('B', 12, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('C', 12, "Turismo", 400000, true));
-        aviones.get(0).getSillas().add(new Silla('D', 12, "Turismo", 400000, true));
+        aviones.get(0).getSillas().add(new Silla('A', 4, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('B', 4, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('C', 4, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('D', 4, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('A', 5, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('B', 5, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('C', 5, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('D', 5, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('A', 6, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('B', 6, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('C', 6, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('D', 6, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('A', 7, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('B', 7, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('C', 7, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('D', 7, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('A', 8, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('B', 8, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('C', 8, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('D', 8, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('A', 9, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('B', 9, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('C', 9, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('D', 9, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('A', 10, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('B', 10, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('C', 10, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('D', 10, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('A', 11, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('B', 11, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('C', 11, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('D', 11, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('A', 12, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('B', 12, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('C', 12, "Turismo", 200000, true));
+        aviones.get(0).getSillas().add(new Silla('D', 12, "Turismo", 200000, true));
 
     }
 
@@ -137,7 +140,7 @@ FinCompra fin=new FinCompra();
         //Creacion de 6 sillas Bussines
         aviones.get(2).getSillas().add(new Silla('A', 4, "Business", 2400000, true));
         aviones.get(2).getSillas().add(new Silla('B', 4, "Business", 2400000, true));
-        aviones.get(2).getSillas().add(new Silla('C', 4, "Business", 2400000, false));
+        aviones.get(2).getSillas().add(new Silla('C', 4, "Business", 2400000, true));
         aviones.get(2).getSillas().add(new Silla('A', 5, "Business", 2400000, true));
         aviones.get(2).getSillas().add(new Silla('B', 5, "Business", 2400000, true));
         aviones.get(2).getSillas().add(new Silla('C', 5, "Business", 2400000, true));

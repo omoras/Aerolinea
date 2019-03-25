@@ -46,5 +46,9 @@ public class Persona {
     public void setDocumento(int documento) {
         this.documento = documento;
     }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
     
 }
