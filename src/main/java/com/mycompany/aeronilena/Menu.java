@@ -42,6 +42,7 @@ public class Menu {
                     case 1:
                         aviones = compra.CompraTiquete(aviones);
                 }
+                
 
             } while (opcion != 0);
         }catch(InputMismatchException e){
