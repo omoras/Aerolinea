@@ -6,6 +6,7 @@
 package com.mycompany.aeronilena;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -28,19 +29,24 @@ public class Menu {
     }
 
     public void Menu() {
+        try{
         CompraTiquete compra = new CompraTiquete();
-        int opcion;
-        do {
-            System.out.println("Aerolinea UDEC");
-            System.out.println("1.Comprar Tiquete");
-            System.out.println("2.Finalizar Compras");
-            System.out.println("3.Ver Reporte de Ventas");
-            opcion = sc.nextInt();
-            switch (opcion) {
-                case 1:
-                    aviones = compra.CompraTiquete(aviones);
-            }
-        } while (opcion != 0);
+            int opcion=0;
+            do {
+                System.out.println("Aerolinea UDEC");
+                System.out.println("1.Comprar Tiquete");
+                System.out.println("2.Finalizar Compras");
+                System.out.println("3.Ver Reporte de Ventas");
+                opcion = sc.nextInt();
+                switch (opcion) {
+                    case 1:
+                        aviones = compra.CompraTiquete(aviones);
+                }
+
+            } while (opcion != 0);
+        }catch(InputMismatchException e){
+             System.err.println(" No ha digitado un numero por favor intente de nuevo"+"  "+e);
+        }
     }
 
     public void CrearAviones() {
@@ -53,7 +59,7 @@ public class Menu {
         //creacion de 6 sillas en Primera clase 
         aviones.get(0).getSillas().add(new Silla('A', 1, "Primera Clase", 400000, false));
         aviones.get(0).getSillas().add(new Silla('B', 1, "Primera Clase", 400000, false));
-        aviones.get(0).getSillas().add(new Silla('A', 2, "Primera Clase", 400000, false));
+        aviones.get(0).getSillas().add(new Silla('A', 2, "Primera Clase", 400000, true));
         aviones.get(0).getSillas().add(new Silla('B', 2, "Primera Clase", 400000, false));
         aviones.get(0).getSillas().add(new Silla('A', 3, "Primera Clase", 400000, false));
         aviones.get(0).getSillas().add(new Silla('B', 3, "Primera Clase", 400000, false));
@@ -103,7 +109,7 @@ public class Menu {
         aviones.get(1).getSillas().add(new Silla('A', 2, "Primera Clase", 80000, false));
         aviones.get(1).getSillas().add(new Silla('B', 2, "Primera Clase", 80000, false));
         aviones.get(1).getSillas().add(new Silla('A', 3, "Primera Clase", 80000, false));
-        aviones.get(1).getSillas().add(new Silla('B', 3, "Primera Clase", 80000, false));
+        aviones.get(1).getSillas().add(new Silla('B', 3, "Primera Clase", 80000, true));
         aviones.get(1).getSillas().add(new Silla('A', 4, "Primera Clase", 80000, false));
         aviones.get(1).getSillas().add(new Silla('B', 4, "Primera Clase", 80000, false));
         aviones.get(1).getSillas().add(new Silla('A', 5, "Primera Clase", 80000, false));
@@ -134,7 +140,7 @@ public class Menu {
         aviones.get(2).getSillas().add(new Silla('B', 7, "Turismo", 3000000, false));
         aviones.get(2).getSillas().add(new Silla('C', 7, "Turismo", 3000000, false));
         aviones.get(2).getSillas().add(new Silla('D', 7, "Turismo", 3000000, false));
-        aviones.get(2).getSillas().add(new Silla('A', 8, "Turismo", 3000000, false));
+        aviones.get(2).getSillas().add(new Silla('A', 8, "Turismo", 3000000, true));
         aviones.get(2).getSillas().add(new Silla('B', 8, "Turismo", 3000000, false));
         aviones.get(2).getSillas().add(new Silla('C', 8, "Turismo", 3000000, false));
         aviones.get(2).getSillas().add(new Silla('D', 8, "Turismo", 3000000, false));

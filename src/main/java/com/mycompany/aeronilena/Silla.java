@@ -25,7 +25,7 @@ public class Silla {
         this.precio = precio;
         this.estado = estado;
     }
-
+    
     public boolean isEstado() {
         return estado;
     }
